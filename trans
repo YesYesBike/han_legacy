@@ -1,0 +1,86 @@
+#!/bin/perl
+##use utf8;  <- 사용금지
+#use strict;
+#use warnings;
+#use Data::Dumper;
+#use feature qw/
+#    say
+#/;
+
+#디버깅용 변수 이름 알파벳 변환
+#한글 서브루틴에 브레이크포인트를 잡을 수 없어서 불가피하게 만들었음
+binmode(STDIN, ":encoding(UTF-8)");
+
+my %trans = (
+    'han_arr' => '넋놓고기역못함',
+    'alp_num' => '알프스산맥을넘어서',
+    'jung_num' => '중학생때들은노래',
+    'jong_num' => '종두법창시자프렝키데종',
+    'jong_cho' => '종말의대마초',
+    'num_jung' => '래노은들때생학중',
+    'double_jaeum' => '쒸쁘뜨까안뗴어쪄요',
+    'jaeum_rev' => '요쪄어뗴안까뜨쁘쒸',
+    'double_moeum' => '걸레에걸려넘어지는결례',
+    'ret' => '리타르단도로깎은사과',
+    'cho' => '초글링잡는파이어뱃',
+    'jung' => '중간이딱이던리버풀은어디에',
+    'jong' => '종갓집종아리치킨',
+    'clipboard' => '이클립스에이끌린당신',
+    'char_input' => '이맥스와디제이맥스의클라이맥스',
+    'arg' => '앍',
+    'three_out' => '삼진루타',
+    'input' => '이치가안맞는이치카',
+    'jaeum' => '히스테리아가부르는뮤즈대쉬',
+    'ch' => '모에모에한뫼비우스',
+    'index' => '인덱스인데스',
+    'var' => '위로트럭사물레이터',
+    'temp' => '뉴후후는어느나라말이야',
+    'moeum' => '달과맞바꾼30달러짜리명반모음',
+    'cho_temp' => '하이템플러',
+    'jong_temp' => '다크템플러',
+    'hangul' => '삼촌안에귤나무로튀어와',
+    'ch_src' => '엔진에소스뿌리기',
+    'hear' => '여기에내가있고저기엔네가없다',
+    'white' => '화이트밴은화이트리스트인가블랙리스트인가',
+    'leader' => '한집안의가장이되는것은가장영예로운일이면서고난하다고할수도있지만아닐수도있고아무튼나는잘모른다',
+    'string' => '황소의햄스트링',
+    'schelp' => '스즈미야울적에',
+    'schell' => '글라도스와휘틀리를거느리던',
+    'help' => '도움도이터',
+    'version' => '로빈반페르시온',
+    'text_mode' => '갈라파고스로떠난갈락티코',
+    'file_mode' => '근데근대는언제부터언제까지야',
+    'FILE' => '주의이것은파일입니다',
+    'ar_gue' => '귀찮다고귀안파는귀막힌상황',
+
+    'EOF1' => '물공헤딩앙리푸엥카레라이스프라이트',
+    'EOF2' => '야구보는야고보',
+    'EOF3' => '미켈란젤로가미카엘안젤로였다고?',
+);
+
+my %trans_rev = reverse %trans;
+
+#open ORIG, '<', 'han';
+#open DEBUG, '>', 'han_debug';
+#while(my $line = <ORIG>){
+#    for(keys %trans_rev){
+#        $line =~ s/$_/$trans_rev{$_}/g if($line =~ /$_/);
+#    }
+#    print DEBUG $line;
+#}
+
+#close ORIG;
+#close DEBUG;
+
+#open ASDF, '<', 'han_debug';
+#open QWER, '>', 'han_aaaa';
+#while(my $line = <ASDF>){
+#    for(keys %trans){
+#        $line =~ s/([^a-zA-Z_])$_([^a-zA-Z_])/$1$trans{$_}$2/g
+#            if($line =~ /$_/);
+#    }
+#    print QWER $line;
+#}
+#
+#close ASDF;
+#close QWER;
