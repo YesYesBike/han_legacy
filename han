@@ -7,13 +7,16 @@ use utf8;
 #    say
 #/;
 #use Switch;
+use integer;
+#use Getopt::Long 'GetOptions';
+use Getopt::Std;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
-my @han_arr = split //,
+my @넋놓고기역못함 = split //,
     "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅐㅑㅒㅓㅔㅕㅖㅗㅛㅜㅠㅡㅣ";
 
-my %alp_num = (
+my %알프스산맥을넘어서 = (
     r =>  0, R =>  1, s =>  2, e =>  3, E =>  4, f =>  5,
     a =>  6, q =>  7, Q =>  8, t =>  9, T => 10, d => 11,
     w => 12, W => 13, c => 14, z => 15, x => 16, v => 17,
@@ -22,7 +25,7 @@ my %alp_num = (
     b => 30, m => 31, l => 32,
 );
 
-my %jung_num = (
+my %중학생때들은노래 = (
     ㅏ =>  0, ㅐ =>  1, ㅑ =>  2, ㅒ =>  3, ㅓ =>  4,
     ㅔ =>  5, ㅕ =>  6, ㅖ =>  7, ㅗ =>  8, ㅘ =>  9,
     ㅙ => 10, ㅚ => 11, ㅛ => 12, ㅜ => 13, ㅝ => 14,
@@ -30,7 +33,7 @@ my %jung_num = (
     ㅣ => 20,
 );
 
-my %jong_num = (
+my %종두법창시자프렝키데종 = (
     ㄱ =>  0, ㄲ =>  1, ㄳ =>  2, ㄴ =>  3, ㄵ =>  4,
     ㄶ =>  5, ㄷ =>  6, ㄹ =>  7, ㄺ =>  8, ㄻ =>  9,
     ㄼ => 10, ㄽ => 11, ㄾ => 12, ㄿ => 13, ㅀ => 14,
@@ -39,188 +42,264 @@ my %jong_num = (
     ㅍ => 25, ㅎ => 26,
 );
 
-my %jong_cho = (
-    0  => 0,  1  => 1,  3  => 2,  6  => 3,  7 => 5,
+my %종말의대마초 = (
+    0  => 0,  1  => 1,  3  => 2,  6  => 3,  7  => 5,
     15 => 6,  16 => 7,  18 => 9,  19 => 10, 20 => 11,
     21 => 12 ,22 => 14, 23 => 15, 24 => 16, 25 => 17,
     26 => 18 ,
 );
 
-my %num_jung = reverse %jung_num;
+my %래노은들때생학중 = reverse %중학생때들은노래;
 
-my %double_jaeum = (   #jong,cho  jong
+my %쒸쁘뜨까안뗴어쪄요 = (   
     "0,9"  => 2,   "3,12" => 4,  "3,18" => 5,
     "7,0"  => 8,   "7,6"  => 9,  "7,7"  => 10,
     "7,9"  => 11,  "7,16" => 12, "7,17" => 13,
-    "7,18" => 14,  "16,9"  => 17,
+    "7,18" => 14,  "16,9" => 17,
 );
 
-my %rev = reverse %double_jaeum;
+my %요쪄어뗴안까뜨쁘쒸 = reverse %쒸쁘뜨까안뗴어쪄요;
 
-my %double_moeum = (   #jung,cho  jung
+my %걸레에걸려넘어지는결례 = (   
     "8,19"  => 9,  "8,20"  => 10, "8,32"  => 11,
     "13,23" => 14, "13,24" => 15, "13,32" => 16,
     "18,32" => 19,
 );
 
-my @ret;
+my @리타르단도로깎은사과;
 
-my $cho;
-my $jung;
-my $jong;
+my $초글링잡는파이어뱃;
+my $중간이딱이던리버풀은어디에;
+my $종갓집종아리치킨;
 
-sub char_input{
-    my @arg = @_;
-    my $three_out = 0;
-    for (@arg){
-        ($_ = -1, $three_out++) if !defined;
+my $이클립스에이끌린당신;
+
+sub 이맥스와디제이맥스의클라이맥스{
+    my @앍 = @_;
+    my $삼진루타 = 0;
+    for (@앍){
+        ($_ = -1, $삼진루타++) if !defined;
     }
-    return if $three_out == 3;
-    my $input = 0xac00 + 21*28*$arg[0] + 28*$arg[1] + $arg[2] + 1;
-    push @ret, chr($input);
+    return if $삼진루타 == 3;
+    my $이치가안맞는이치카 = 0xac00 + 21*28*$앍[0] + 28*$앍[1] + $앍[2] + 1;
+    push @리타르단도로깎은사과, chr($이치가안맞는이치카);
 }
 
-sub jaeum{
-    my ($ch, $index) = @_;
-    if(!defined $jung){
-        if(!defined $jong){
-            if(!defined $cho){
-                $cho = $index;
+sub 히스테리아가부르는뮤즈대쉬{
+    my ($모에모에한뫼비우스, $인덱스인데스) = @_;
+    if(!defined $중간이딱이던리버풀은어디에){
+        if(!defined $종갓집종아리치킨){
+            if(!defined $초글링잡는파이어뱃){
+                $초글링잡는파이어뱃 = $인덱스인데스;
             } else {
-                push @ret, $han_arr[$cho];
-                $cho = $index;
+                push @리타르단도로깎은사과, $넋놓고기역못함[$초글링잡는파이어뱃];
+                $초글링잡는파이어뱃 = $인덱스인데스;
             }
         }
     } else {
-        if(!defined $jong){
-            if(!defined $cho){
-                push @ret, $num_jung{$jung};
-                undef $jung;
-                $cho = $index;
+        if(!defined $종갓집종아리치킨){
+            if(!defined $초글링잡는파이어뱃){
+                push @리타르단도로깎은사과, $래노은들때생학중{$중간이딱이던리버풀은어디에};
+                undef $중간이딱이던리버풀은어디에;
+                $초글링잡는파이어뱃 = $인덱스인데스;
             } else {
-                if( defined(my $var = $jong_num{$ch}) ){
-                    $jong = $var;
+                if( defined(my $위로트럭사물레이터 = $종두법창시자프렝키데종{$모에모에한뫼비우스}) ){
+                    $종갓집종아리치킨 = $위로트럭사물레이터;
                 } else {
-                    char_input($cho, $jung, $jong);
-                    undef $jung;
-                    undef $jong;
-                    $cho = $index;
+                    이맥스와디제이맥스의클라이맥스($초글링잡는파이어뱃, $중간이딱이던리버풀은어디에, $종갓집종아리치킨);
+                    undef $중간이딱이던리버풀은어디에;
+                    undef $종갓집종아리치킨;
+                    $초글링잡는파이어뱃 = $인덱스인데스;
                 }
             }
         } else {
-            if(defined $cho){
-                if( my $temp = $double_jaeum{"$jong,$index"} ){
-                    $jong = $temp;
+            if(defined $초글링잡는파이어뱃){
+                if( my $뉴후후는어느나라말이야 = $쒸쁘뜨까안뗴어쪄요{"$종갓집종아리치킨,$인덱스인데스"} ){
+                    $종갓집종아리치킨 = $뉴후후는어느나라말이야;
                 } else {
-                    char_input($cho, $jung, $jong);
-                    undef $jung;
-                    undef $jong;
-                    $cho = $index;
+                    이맥스와디제이맥스의클라이맥스($초글링잡는파이어뱃, $중간이딱이던리버풀은어디에, $종갓집종아리치킨);
+                    undef $중간이딱이던리버풀은어디에;
+                    undef $종갓집종아리치킨;
+                    $초글링잡는파이어뱃 = $인덱스인데스;
                 }
             }
         }
     }
 }
 
-sub moeum{
-    my ($ch, $index) = @_;
+sub 달과맞바꾼30달러짜리명반모음{
+    my ($모에모에한뫼비우스, $인덱스인데스) = @_;
 
-    if(!defined $cho){
-        if(defined $jong){
-            if(my $temp = $rev{$jong}){
-                $temp =~ /(\d)+,(\d)+/;
-                $jong = $1;
-                char_input($cho, $jung, $jong);
-                $cho = $2;
-                undef $jong;
+    if(!defined $초글링잡는파이어뱃){
+        if(defined $종갓집종아리치킨){
+            if(my $뉴후후는어느나라말이야 = $요쪄어뗴안까뜨쁘쒸{$종갓집종아리치킨}){
+                $뉴후후는어느나라말이야 =~ /(\d+),(\d+)/;
+                $종갓집종아리치킨 = $1;
+                이맥스와디제이맥스의클라이맥스($초글링잡는파이어뱃, $중간이딱이던리버풀은어디에, $종갓집종아리치킨);
+                $초글링잡는파이어뱃 = $2;
+                undef $종갓집종아리치킨;
             }
         } else {
-            push @ret, $ch;
+            push @리타르단도로깎은사과, $모에모에한뫼비우스;
         }
     } else {
-        if(!defined $jong){
-            if(!defined $jung){
-                $jung = $jung_num{$ch};
+        if(!defined $종갓집종아리치킨){
+            if(!defined $중간이딱이던리버풀은어디에){
+                $중간이딱이던리버풀은어디에 = $중학생때들은노래{$모에모에한뫼비우스};
             } else {
-                if(my $temp = $double_moeum{"$jung,$index"}){
-                    $jung = $temp;
+                if(my $뉴후후는어느나라말이야 = $걸레에걸려넘어지는결례{"$중간이딱이던리버풀은어디에,$인덱스인데스"}){
+                    $중간이딱이던리버풀은어디에 = $뉴후후는어느나라말이야;
                 } else {
-                    char_input($cho, $jung, $jong);
-                    undef $cho;
-                    undef $jung;
-                    push @ret, $ch;
+                    이맥스와디제이맥스의클라이맥스($초글링잡는파이어뱃, $중간이딱이던리버풀은어디에, $종갓집종아리치킨);
+                    undef $초글링잡는파이어뱃;
+                    undef $중간이딱이던리버풀은어디에;
+                    push @리타르단도로깎은사과, $모에모에한뫼비우스;
                 }
             }
         } else {
-            my $cho_temp;
-            my $jong_temp;
-            if(my $temp = $rev{$jong}){
-                $temp =~ /(\d+),(\d+)/;
-                $jong = $1;
-                $cho_temp = $2;
-                char_input($cho, $jung, $jong);
-                undef $jong;
+            my $하이템플러;
+            my $다크템플러;
+            if(my $뉴후후는어느나라말이야 = $요쪄어뗴안까뜨쁘쒸{$종갓집종아리치킨}){
+                $뉴후후는어느나라말이야 =~ /(\d+),(\d+)/;
+                $종갓집종아리치킨 = $1;
+                $하이템플러 = $2;
+                이맥스와디제이맥스의클라이맥스($초글링잡는파이어뱃, $중간이딱이던리버풀은어디에, $종갓집종아리치킨);
+                undef $종갓집종아리치킨;
             } else {
-                $jong_temp = $jong;
-                undef $jong;
-                char_input($cho, $jung, $jong);
+                $다크템플러 = $종갓집종아리치킨;
+                undef $종갓집종아리치킨;
+                이맥스와디제이맥스의클라이맥스($초글링잡는파이어뱃, $중간이딱이던리버풀은어디에, $종갓집종아리치킨);
             }
 
-            if(defined $cho_temp){
-                $cho = $cho_temp;
+            if(defined $하이템플러){
+                $초글링잡는파이어뱃 = $하이템플러;
             } else {
-                $cho = $jong_cho{$jong_temp};
+                $초글링잡는파이어뱃 = $종말의대마초{$다크템플러};
             }
-            $jung = $jung_num{$ch};
+            $중간이딱이던리버풀은어디에 = $중학생때들은노래{$모에모에한뫼비우스};
         }
     }
 }
 
-sub hangul{
-    my $input = shift;
+sub 삼촌안에귤나무로튀어와{
+    my $이치가안맞는이치카 = shift;
 
-    for my $ch_src(split //, $input){
-        my $index = $alp_num{$ch_src};
-        my $ch = $han_arr[$index] if defined $index;
+    for my $엔진에소스뿌리기(split //, $이치가안맞는이치카){
+        my $인덱스인데스 = $알프스산맥을넘어서{$엔진에소스뿌리기};
+        my $모에모에한뫼비우스 = $넋놓고기역못함[$인덱스인데스] if defined $인덱스인데스;
 
-        if(!defined $index){
-            char_input($cho, $jung, $jong);
-            undef $cho;
-            undef $jung;
-            undef $jong;
-            push @ret, $ch_src;
+        if(!defined $인덱스인데스){
+            이맥스와디제이맥스의클라이맥스($초글링잡는파이어뱃, $중간이딱이던리버풀은어디에, $종갓집종아리치킨);
+            undef $초글링잡는파이어뱃;
+            undef $중간이딱이던리버풀은어디에;
+            undef $종갓집종아리치킨;
+            push @리타르단도로깎은사과, $엔진에소스뿌리기;
             next;
         }
 
-        if($index < 19){
-            jaeum($ch, $index);
+        if($인덱스인데스 < 19){
+            히스테리아가부르는뮤즈대쉬($모에모에한뫼비우스, $인덱스인데스);
         } else {
-            moeum($ch, $index);
+            달과맞바꾼30달러짜리명반모음($모에모에한뫼비우스, $인덱스인데스);
         }
     }
 
-    if(defined $cho){
-        if(defined $jung){
-            char_input($cho, $jung, $jong);
+    if(defined $초글링잡는파이어뱃){
+        if(defined $중간이딱이던리버풀은어디에){
+            이맥스와디제이맥스의클라이맥스($초글링잡는파이어뱃, $중간이딱이던리버풀은어디에, $종갓집종아리치킨);
         } else {
-            push @ret, $han_arr[$cho];
+            push @리타르단도로깎은사과, $넋놓고기역못함[$초글링잡는파이어뱃];
         }
     } else {
-        if(defined $jung){
-            push @ret, $jung_num{$jung};
+        if(defined $중간이딱이던리버풀은어디에){
+            push @리타르단도로깎은사과, $중학생때들은노래{$중간이딱이던리버풀은어디에};
         } else {
-            push @ret, $jong_num{$jong} if(defined $jong);
+            push @리타르단도로깎은사과, $종두법창시자프렝키데종{$종갓집종아리치킨} if(defined $종갓집종아리치킨);
         }
     }
 
-    undef $cho;
-    undef $jung;
-    undef $jong;
+    undef $초글링잡는파이어뱃;
+    undef $중간이딱이던리버풀은어디에;
+    undef $종갓집종아리치킨;
 
-    print join '', @ret;
-    undef @ret;
+    print join '', @리타르단도로깎은사과;
+    undef @리타르단도로깎은사과;
 }
 
-while(<>){              #Starts Here
-    hangul $_;
+sub 여기에내가있고저기엔네가없다{
+    my $황소의햄스트링 = shift;
+    $황소의햄스트링 =~ s/^\s+//gm;
+    $황소의햄스트링;
+}
+
+sub 스즈미야울적에{
+    print 여기에내가있고저기엔네가없다 <<"    물공헤딩앙리푸엥카레라이스프라이트"
+    <알파벳-한글 변환기 쉘 도움말>
+    :q - 종료
+    :h - 도움말
+    :c - 화면 지우기
+    물공헤딩앙리푸엥카레라이스프라이트
+}
+
+sub 글라도스와휘틀리를거느리던{
+    print "알파벳-한글 변환기(:h 도움말, :q 종료)\n> ";
+}
+
+sub 도움도이터{
+    print 여기에내가있고저기엔네가없다 <<"    야구보는야고보";
+    <알파벳-한글 변환기 도움말>
+    -c:             결과물을 클립보드로 출력(xsel)
+    -f <파일이름>:  파일을 한글로 변환
+    -h:             도움말
+    -i:             대화형 쉘
+    -t <전달인자>:  STDIN이 아닌 전달인자를 한글로 출력
+    -v:             버전
+    야구보는야고보
+}
+
+sub 로빈반페르시온{
+    print 여기에내가있고저기엔네가없다 <<"    미켈란젤로가미카엘안젤로였다고?";
+    han - 알파벳-한글 변환기
+    현재 버전: v0.1
+    작성자: yesyesbike
+    미켈란젤로가미카엘안젤로였다고?
+}
+
+sub 갈라파고스로떠난갈락티코{
+    $_ = join / /, @_;
+    삼촌안에귤나무로튀어와 $_;
+}
+
+sub file_mode{
+    for(@_){
+        shift;
+        open 주의이것은파일입니다, '<', $_;
+        while(<주의이것은파일입니다>){
+            삼촌안에귤나무로튀어와 $_;
+        }
+        close 주의이것은파일입니다;
+    }
+}
+
+if(@ARGV){
+    getopts("cf:hit:v", \%귀찮다고귀안파는귀막힌상황);
+    if($귀찮다고귀안파는귀막힌상황{c}){
+        $이클립스에이끌린당신 = 1;
+    }
+
+    if($귀찮다고귀안파는귀막힌상황{h}){
+        도움도이터;
+    } elsif($귀찮다고귀안파는귀막힌상황{v}){
+        로빈반페르시온;
+    } elsif($귀찮다고귀안파는귀막힌상황{i}){
+        글라도스와휘틀리를거느리던;
+    } elsif($귀찮다고귀안파는귀막힌상황{t}){
+        갈라파고스로떠난갈락티코($귀찮다고귀안파는귀막힌상황{t});
+    } elsif($귀찮다고귀안파는귀막힌상황{f}){
+        file_mode($귀찮다고귀안파는귀막힌상황{f});
+    }
+} else {
+    while(<>){
+        삼촌안에귤나무로튀어와 $_;
+    }
 }
