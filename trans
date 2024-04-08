@@ -52,35 +52,52 @@ my %trans = (
     'file_mode' => '근데근대는언제부터언제까지야',
     'FILE' => '주의이것은파일입니다',
     'ar_gue' => '귀찮다고귀안파는귀막힌상황',
+    'clip' => '클럽에서클립춤추기',
+    'XCLIP' => '주의이것은클립보드를덮어씁니다',
 
     'EOF1' => '물공헤딩앙리푸엥카레라이스프라이트',
     'EOF2' => '야구보는야고보',
-    'EOF3' => '미켈란젤로가미카엘안젤로였다고?',
+    'EOF3' => '미켈란젤로가미카엘안젤로였다고',
 );
 
 my %trans_rev = reverse %trans;
 
-#open ORIG, '<', 'han';
-#open DEBUG, '>', 'han_debug';
-#while(my $line = <ORIG>){
-#    for(keys %trans_rev){
-#        $line =~ s/$_/$trans_rev{$_}/g if($line =~ /$_/);
-#    }
-#    print DEBUG $line;
-#}
+print "> ";
+while(my $line = <STDIN>){
+    chomp;
+    if($line =~ /^od$/){
+        open ORIG, '<', 'han';
+        open DEBUG, '>', 'han_debug';
+        while(my $line = <ORIG>){
+            for(keys %trans_rev){
+                $line =~ s/$_/$trans_rev{$_}/g if($line =~ /$_/);
+            }
+            print DEBUG $line;
+        }
 
-#close ORIG;
-#close DEBUG;
+        close ORIG;
+        close DEBUG;
+        system('chmod u+x han_debug');
+        exit;
+    } elsif($line =~ /^do$/){
+        open ASDF, '<', 'han_debug';
+        open QWER, '>', 'han_aaaa';
+        while(my $line = <ASDF>){
+            for(keys %trans){
+                $line =~ s/([^a-zA-Z_])$_([^a-zA-Z_])/$1$trans{$_}$2/g
+                if($line =~ /$_/);
+            }
+            print QWER $line;
+        }
 
-#open ASDF, '<', 'han_debug';
-#open QWER, '>', 'han_aaaa';
-#while(my $line = <ASDF>){
-#    for(keys %trans){
-#        $line =~ s/([^a-zA-Z_])$_([^a-zA-Z_])/$1$trans{$_}$2/g
-#            if($line =~ /$_/);
-#    }
-#    print QWER $line;
-#}
-#
-#close ASDF;
-#close QWER;
+        close ASDF;
+        close QWER;
+        system('chmod u+x han_aaaa');
+        system('diff han han_aaaa');
+        exit;
+    } elsif($line =~ /^:q$/){
+        exit;
+    } else {
+        print "> ";
+    }
+}

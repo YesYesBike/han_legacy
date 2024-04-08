@@ -74,10 +74,10 @@ dl tmzmflqxmsms dkfvkqptdlwlaks gksrnrdjdlqslek.
 
 
 ### 쉘 명령어
-- :q - 종료
-- :h - 쉘 도움말
-- :c - 화면 지우기
-
+- :q    - 종료
+- :h    - 도움말
+- :c    - 화면 지우기
+- :C    - 클립보드 덮어쓰기 활성화/비활성화
 
 ## TODO
 - 클립보드 옵션
