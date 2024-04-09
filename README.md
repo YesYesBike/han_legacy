@@ -90,6 +90,8 @@ dl tmzmflqxmsms dkfvkqptdlwlaks gksrnrdjdlqslek.
 
 - 한글이 포함된 텍스트를 변환기에 넣으면 요상한 문자를 출력함
 
+- -c 옵션과 다른 옵션을 같이 사용할 때 -c가 뒤에 위치하면 제대로 작동하지 않음
+
 
 ## 그 외
 - 원래 theyt.net에서 코드를 참조하였으나 Javascript를 할 줄 몰라서 처음부터 코드를 새로 짰다. 그래도 개발하면서 적지 않은 도움을 받았다.
