@@ -48,7 +48,7 @@ $ ./han -t "Wkfkxntmxmfksms wjfjgrpeh akfgoTek"
 
 #### tmux와의 연계 (.tmux.conf)
 ```
-bind h command-prompt -p "hangul>" { run '디렉토리/han -ct %%%'}
+bind h command-prompt -p "hangul>" { run '디렉토리/han -ct "%%%" 1>/dev/null'}
 ```
 
 #### 좀 있어보이는 스크립트 작성
