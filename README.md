@@ -34,7 +34,7 @@ $ ./han -f 파일이름
 
 #### STDIN을 한글로 출력
 ```
-$ cat 파일이름 | ./han -s
+$ ./han -s < 파일이름
 ```
 사실 위 명령어랑 똑같다
 
@@ -48,7 +48,7 @@ $ ./han -t "Wkfkxntmxmfksms wjfjgrpeh akfgoTek"
 
 #### tmux와의 연계 (.tmux.conf)
 ```
-bind h command-prompt -p "hangul>" { run '디렉토리/han -ct "%%%" 1>/dev/null'}
+bind h command-prompt -p "한글>" { run '디렉토리/han -ct "%%%" 1>/dev/null'}
 ```
 
 #### 좀 있어보이는 스크립트 작성
